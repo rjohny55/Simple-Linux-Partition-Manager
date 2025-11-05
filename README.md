@@ -36,14 +36,14 @@ A simple and user-friendly bash script for managing disk partitions in Linux wit
 
 ```bash
 # Download the script
-git clone https://github.com/your-repo/partition-manager.git
+git clone https://github.com/rjohny55/Simple-Linux-Partition-Manager.git
 cd partition-manager
 
 # Make executable
-chmod +x partition_manager.sh
+chmod +x slpm.sh
 
 # Run as root
-sudo ./partition_manager.sh
+sudo ./slpm.sh
 ```
 
 ## 🎯 Usage
@@ -71,7 +71,7 @@ After launch you'll see:
 
 ```bash
 # Start the script
-sudo ./partition_manager.sh
+sudo ./slpm.sh
 
 # Example of partition expansion:
 # 1. Select disk /dev/sda
