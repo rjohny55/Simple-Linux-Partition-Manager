@@ -37,7 +37,7 @@ A simple and user-friendly bash script for managing disk partitions in Linux wit
 ```bash
 # Download the script
 git clone https://github.com/rjohny55/Simple-Linux-Partition-Manager.git
-cd partition-manager
+cd Simple-Linux-Partition-Manager
 
 # Make executable
 chmod +x slpm.sh
