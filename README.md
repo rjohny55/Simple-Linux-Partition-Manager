@@ -123,7 +123,7 @@ This project is distributed under the MIT License. See `LICENSE` file for detail
 ```text
 MIT License
 
-Copyright (c) 2024 Simple Partition Manager
+Copyright (c) 2025 Simple Partition Manager
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
