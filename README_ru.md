@@ -35,14 +35,14 @@
 
 ```bash
 # Скачайте скрипт
-git clone https://github.com/your-repo/partition-manager.git
+git clone https://github.com/rjohny55/Simple-Linux-Partition-Manager.git
 cd partition-manager
 
 # Дайте права на выполнение
-chmod +x partition_manager.sh
+chmod +x slpm_ru.sh
 
 # Запустите с правами root
-sudo ./partition_manager.sh
+sudo ./slpm_ru.sh
 ```
 
 ## 🎯 Использование
@@ -70,7 +70,7 @@ sudo ./partition_manager.sh
 
 ```bash
 # Запуск скрипта
-sudo ./partition_manager.sh
+sudo ./slpm_ru.sh
 
 # Пример расширения раздела:
 # 1. Выбираем диск /dev/sda
