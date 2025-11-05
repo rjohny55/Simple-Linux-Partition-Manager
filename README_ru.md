@@ -36,7 +36,7 @@
 ```bash
 # Скачайте скрипт
 git clone https://github.com/rjohny55/Simple-Linux-Partition-Manager.git
-cd partition-manager
+cd Simple-Linux-Partition-Manager
 
 # Дайте права на выполнение
 chmod +x slpm_ru.sh
