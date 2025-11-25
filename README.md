@@ -1,4 +1,3 @@
-```markdown
 # SIMPLE LINUX PARTITION MANAGER v1.2
 
 **The simplest, safest and most user-friendly terminal-based partition manager written entirely in pure Bash.**
