@@ -1,4 +1,6 @@
-# SIMPLE LINUX PARTITION MANAGER v1.2
+# SIMPLE LINUX PARTITION MANAGER v1.2 (SLPM)
+
+![Version](https://img.shields.io/badge/version-1.2-blue) [![Bash](https://img.shields.io/badge/Bash-4.4%2B-green)](https://www.gnu.org/software/bash/) ![License](https://img.shields.io/badge/license-Apache-orange) [![Stars](https://img.shields.io/github/stars/rjohny55/Simple-Linux-Docker-Manager?style=social)](https://github.com/rjohny55/Simple-Linux-Docker-Manager)
 
 **The simplest, safest and most user-friendly terminal-based partition manager written entirely in pure Bash.**
 
