@@ -1,145 +1,116 @@
-**README.md:**
 ```markdown
-# 🖥️ Simple Linux Partition Manager
+# SIMPLE LINUX PARTITION MANAGER v1.2
 
-**English** | [Russian](README_ru.md)
+**The simplest, safest and most user-friendly terminal-based partition manager written entirely in pure Bash.**
 
-A simple and user-friendly bash script for managing disk partitions in Linux with an intuitive text-based interface.
+No ncurses, no extra dependencies — just a single script that works everywhere.
 
-## ✨ Features
+### Features (2025 edition)
+- Never bricks GPT disks — automatically uses `-34s` instead of dangerous `100%`
+- Resizes only the last partition (with clear warning if you pick another one)
+- Proper 1 MiB alignment for all new partitions
+- Create + instantly format: **ext4 · xfs · fat32 · swap**
+- Auto-grow ext4, XFS filesystems and LVM Physical Volumes
+- Free space highlighted in green
+- Toggle zram/virtual devices with one key (`z`)
+- System disk marked in red + big warning
+- Prevents double launch + clean exit on Ctrl+C
+- Works on SATA, NVMe, MMC, VirtIO, Xen, LXC — everywhere
 
-- 📊 **View information** about disks and partitions
-- 📏 **Resize partitions** with filesystem expansion
-- ➕ **Create new** partitions
-- ❌ **Delete** existing partitions
-- 🔄 **Automatic expansion** of filesystems (ext2/3/4, XFS, BTRFS, NTFS)
-- 🛡️ **Safe unmounting** before operations
-- 🔧 **GPT table fixes** when needed
-- 🎨 **Colorful output** for better readability
+### Installation
 
-## 📋 Supported Filesystems
-
-- **ext2/ext3/ext4** - full support
-- **XFS** - expansion when mounted
-- **BTRFS** - expansion when mounted
-- **NTFS** - with `ntfsresize` utility
-- **FAT32** - limited support
-
-## 🚀 Quick Start
-
-### Requirements
-- Linux OS
-- Root privileges
-- Utilities: `lsblk`, `parted`, `blkid`, `findmnt`
-
-### Installation & Run
-
+**Recommended one-liner (installs as `partman`):**
 ```bash
-# Download the script
+sudo curl -L https://raw.githubusercontent.com/rjohny55/Simple-Linux-Partition-Manager/main/slpm.sh \
+  -o /usr/local/bin/partman && sudo chmod +x /usr/local/bin/partman
+```
+
+**Or classic way:**
+```bash
 git clone https://github.com/rjohny55/Simple-Linux-Partition-Manager.git
 cd Simple-Linux-Partition-Manager
-
-# Make executable
 chmod +x slpm.sh
-
-# Run as root
 sudo ./slpm.sh
 ```
 
-## 🎯 Usage
-
-### Main Menu
-After launch you'll see:
-1. **List of all disks** with free space information
-2. **Disk selection** for management
-3. **Operations menu** for selected disk
-
-### Available Operations
-- 📊 **Disk Information** - detailed disk information
-- 📋 **Partition Table** - current partition structure
-- ➕ **Create Partition** - create new partition
-- ❌ **Delete Partition** - remove existing partition
-- 📏 **Resize Partition** - expand partition with GPT handling
-
-## ⚠️ Important Warnings
-
-- **Always backup** important data before partition operations
-- **Do not interrupt** partition operations
-- **Ensure** partition is unmounted or can be safely unmounted
-
-## 🔧 Workflow Example
-
+### Usage
 ```bash
-# Start the script
+sudo partman        # if installed via one-liner
+# or
 sudo ./slpm.sh
-
-# Example of partition expansion:
-# 1. Select disk /dev/sda
-# 2. Choose "Resize partition"
-# 3. Select partition 2 (last one)
-# 4. Confirm unmounting
-# 5. Choose expansion to all free space
-# 6. Confirm operation
-# 7. Script automatically expands partition and filesystem
 ```
 
-## 🐛 Troubleshooting
+### Requirements
+Only standard tools (present on every Linux):
+- `lsblk`, `parted`, `util-linux`, `e2fsprogs`
 
-### GPT Table Error
-If you encounter:
-```
-Warning: Not all of the space available to /dev/sda appears to be used
-```
-The script will automatically offer to fix the GPT table.
+Optional (for full functionality):
+```bash
+# Debian / Ubuntu
+sudo apt install xfsprogs dosfstools lvm2
 
-### Mounted Partition
-When mounted partition is detected, the script offers:
-- Automatic unmounting
-- Continue without unmounting (not recommended)
-- Cancel operation
-
-## 🤝 Contributing
-
-We welcome contributions to the project!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is distributed under the MIT License. See `LICENSE` file for details.
-
-## ⭐ Acknowledgments
-
-- Developers of `parted`, `lsblk`, `resize2fs` utilities
-- Linux community for invaluable resources
+# Fedora / RHEL / AlmaLinux
+sudo dnf install xfsprogs dosfstools lvm2
 ```
 
-Также создам файл **LICENSE** (MIT лицензия):
+### License
+Licensed under the **Apache License 2.0** — see [LICENSE](LICENSE) file.
 
-```text
-MIT License
-
-Copyright (c) 2025 Simple Partition Manager
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 ```
+SIMPLE LINUX PARTITION MANAGER v1.2
+© 2025 rjohny55 — pure Bash, pure safety
+```
+
+Star on GitHub if you like it → https://github.com/rjohny55/Simple-Linux-Partition-Manager
+
+---
+
+## Русский
+
+**Самый простой и самый безопасный менеджер разделов, написанный полностью на Bash.**
+
+Никаких ncurses и тяжёлых зависимостей — один скрипт, который просто работает.
+
+### Возможности (издание 2025 года)
+- Никогда не ломает GPT — автоматически использует `-34s` вместо опасных `100%`
+- Расширяет только последний раздел (с понятным предупреждением)
+- Правильное выравнивание всех новых разделов (+1 МиБ)
+- Создание + мгновенное форматирование: **ext4 · xfs · fat32 · swap**
+- Автоматическое расширение ext4, XFS и LVM PV
+- Свободное место подсвечивается зелёным
+- Переключение zram-дисков одной клавишей `z`
+- Системный диск красный + громкое предупреждение
+- Защита от двойного запуска и чистый выход по Ctrl+C
+
+### Установка
+
+**Рекомендуемый one-liner (устанавливает как `partman`):**
+```bash
+sudo curl -L https://raw.githubusercontent.com/rjohny55/Simple-Linux-Partition-Manager/main/slpm.sh \
+  -o /usr/local/bin/partman && sudo chmod +x /usr/local/bin/partman
+```
+
+**Классический способ:**
+```bash
+git clone https://github.com/rjohny55/Simple-Linux-Partition-Manager.git
+cd Simple-Linux-Partition-Manager
+chmod +x slpm.sh
+sudo ./slpm.sh
+```
+
+### Запуск
+```bash
+sudo partman        # если установили one-liner'ом
+# или
+sudo ./slpm.sh
+```
+
+### Лицензия
+**Apache License 2.0** — смотрите файл [LICENSE](LICENSE).
+
+```
+SIMPLE LINUX PARTITION MANAGER v1.2
+© 2025 rjohny55 — чистый Bash, чистая безопасность
+```
+
+Ставьте звёздочку, если понравилось → https://github.com/rjohny55/Simple-Linux-Partition-Manager
